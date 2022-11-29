@@ -11,15 +11,17 @@ public class HelloWorldController {
 
     @GetMapping("/hello")
     public String hello() {
-        String message = "hello world";
-        return message;
+        return "hello world";
     }
 
     @GetMapping("/time")
     public String time() {
         LocalDateTime now = LocalDateTime.now();
-        String nowTime = now.format(DateTimeFormatter.ofPattern("yyyy/MM/dd"));
+        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy/MM/dd");
+        String nowTime = dateTimeFormatter.format(now);
 
         return nowTime;
     }
 }
+
+
